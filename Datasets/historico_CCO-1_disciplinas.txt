@@ -1,0 +1,61 @@
+2016.1 | CIC130 | INTRODUÇÃO À CIÊNCIA DA COMPUTAÇÃO | CH: 32 | Freq: 93.8% | Nota: 6.3 | Situação: APR
+2016.1 | CIC510 | FUNDAMENTOS DE FÍSICA PARA COMPUTAÇÃO | CH: 64 | Freq: 84.4% | Nota: 7.2 | Situação: APR
+2016.1 | COM110 | FUNDAMENTOS DE PROGRAMAÇÃO | CH: 80 | Freq: 100.0% | Nota: 6.8 | Situação: APR
+2016.1 | COM310 | METODOLOGIA CIENTÍFICA PARA INFORMÁTICA | CH: 32 | Freq: 87.5% | Nota: 6.1 | Situação: APR
+2016.1 | MAT011 | GEOMETRIA ANALÍTICA E ÁLGEBRA LINEAR | CH: 64 | Freq: 100.0% | Nota: 1.4 | Situação: REP
+2016.1 | MAT050 | FUNDAMENTOS DA MATEMÁTICA | CH: 64 | Freq: 100.0% | Nota: 6.0 | Situação: APR
+2016.2 | CIC120 | ORGANIZAÇÃO E ARQUITETURA DE COMPUTADORES I | CH: 64 | Freq: 100.0% | Nota: 5.2 | Situação: REP
+2016.2 | CIC310 | ECONOMIA DA INFORMAÇÃO | CH: 48 | Freq: 93.8% | Nota: 5.6 | Situação: REP
+2016.2 | COM111 | ALGORITMOS E ESTRUTURAS DE DADOS I | CH: 96 | Freq: 89.6% | Nota: 2.0 | Situação: REP
+2016.2 | LET007 | LIBRAS - LÍNGUA BRASILEIRA DE SINAIS | CH: 48 | Freq: 81.3% | Nota: 7.5 | Situação: APR
+2016.2 | MAT001 | CÁLCULO I | CH: 96 | Freq: 100.0% | Nota: 3.5 | Situação: REP
+2016.2 | MAT011 | GEOMETRIA ANALÍTICA E ÁLGEBRA LINEAR | CH: 64 | Freq: 100.0% | Nota: 1.2 | Situação: REP
+2016.2 | MAT015 | MATEMÁTICA DISCRETA | CH: 64 | Freq: 98.3% | Nota: 0.8 | Situação: REP
+2017.1 | CIC131 | LÓGICA PARA COMPUTAÇÃO | CH: 64 | Freq: 100.0% | Nota: 2.6 | Situação: REP
+2017.1 | COM112 | ALGORITMO E ESTRUTURA DE DADOS II | CH: 80 | Freq: 88.0% | Nota: 2.2 | Situação: REP
+2017.1 | COM210 | ENGENHARIA DE SOFTWARE I | CH: 80 | Freq: 100.0% | Nota: 6.0 | Situação: APR
+2017.1 | COM230 | BANCO DE DADOS I | CH: 64 | Freq: 68.0% | Nota: 2.4 | Situação: REP
+2017.1 | MAT011 | GEOMETRIA ANALÍTICA E ÁLGEBRA LINEAR | CH: 64 | Freq: 78.1% | Nota: 4.6 | Situação: REP
+2017.2 | CIC110 | ANÁLISE E PROJETO DE ALGORITMOS I | CH: 64 | Freq: 81.0% | Nota: 1.7 | Situação: REP
+2017.2 | CIC120 | ORGANIZAÇÃO E ARQUITETURA DE COMPUTADORES I | CH: 64 | Freq: 100.0% | Nota: 6.7 | Situação: APR
+2017.2 | CIC310 | ECONOMIA DA INFORMAÇÃO | CH: 48 | Freq: 81.3% | Nota: 6.0 | Situação: APR
+2017.2 | COM111 | ALGORITMOS E ESTRUTURAS DE DADOS I | CH: 96 | Freq: 69.2% | Nota: 1.9 | Situação: REP
+2017.2 | MAT001 | CÁLCULO I | CH: 96 | Freq: 100.0% | Nota: 1.9 | Situação: REP
+2017.2 | MAT057 | MATEMÁTICA DISCRETA | CH: 64 | Freq: 100.0% | Nota: 0.7 | Situação: REP
+2018.1 | CIC121 | ORGANIZAÇÃO E ARQUITETURA DE COMPUTADORES II | CH: 64 | Freq: 100.0% | Nota: 7.1 | Situação: APR
+2018.1 | CIC131 | LÓGICA PARA COMPUTAÇÃO | CH: 64 | Freq: 93.0% | Nota: 7.0 | Situação: APR
+2018.1 | COM112 | ALGORITMO E ESTRUTURA DE DADOS II | CH: 80 | Freq: 83.1% | Nota: 8.2 | Situação: APR
+2018.1 | COM213 | INTERAÇÃO HUMANO-COMPUTADOR | CH: 64 | Freq: 100.0% | Nota: 7.9 | Situação: APR
+2018.1 | COM311 | ANÁLISE DE INVESTIMENTO EM INFORMÁTICA | CH: 48 | Freq: 81.3% | Nota: 6.0 | Situação: APR
+2018.1 | SIN210 | GOVERNANÇA EM TECNOLOGIA DE INFORMAÇÃO | CH: 64 | Freq: 100.0% | Nota: 5.4 | Situação: REP
+2018.1 | SIN313 | ORGANIZAÇÃO E MÉTODOS | CH: 48 | Freq: 75.0% | Nota: 6.5 | Situação: APR
+2018.2 | CIC133 | PARADIGMAS DE PROGRAMAÇÃO | CH: 64 | Freq: 89.0% | Nota: 7.6 | Situação: APR
+2018.2 | CIC260 | INTELIGÊNCIA ARTIFICIAL | CH: 64 | Freq: 81.0% | Nota: 7.7 | Situação: APR
+2018.2 | COM111 | ALGORITMOS E ESTRUTURAS DE DADOS I | CH: 96 | Freq: 57.1% | Nota: 6.0 | Situação: APR
+2018.2 | COM312 | INFORMÁTICA E SOCIEDADE | CH: 48 | Freq: 100.0% | Nota: 7.0 | Situação: APR
+2018.2 | MAT001 | CÁLCULO I | CH: 96 | Freq: 100.0% | Nota: 0.2 | Situação: REP
+2018.2 | MAT011 | GEOMETRIA ANALÍTICA E ÁLGEBRA LINEAR | CH: 64 | Freq: 81.3% | Nota: 0.2 | Situação: REP
+2019.1 | ADM083 | INTRODUÇÃO AO EMPREENDEDORISMO | CH: 48 | Freq: 100.0% | Nota: 7.0 | Situação: APR
+2019.1 | COM220 | COMPUTAÇÃO ORIENTADA A OBJETOS I | CH: 64 | Freq: 70.6% | Nota: 0.8 | Situação: REP
+2019.1 | COM230 | BANCO DE DADOS I | CH: 64 | Freq: 87.0% | Nota: 3.4 | Situação: REP
+2019.1 | MAT001 | CÁLCULO I | CH: 96 | Freq: 100.0% | Nota: 1.5 | Situação: REP
+2019.1 | MAT011 | GEOMETRIA ANALÍTICA E ÁLGEBRA LINEAR | CH: 64 | Freq: 81.0% | Nota: 3.1 | Situação: REP
+2019.2 | CIC110 | ANÁLISE E PROJETO DE ALGORITMOS I | CH: 64 | Freq: 79.6% | Nota: 0.8 | Situação: REP
+2019.2 | COM211 | ENGENHARIA DE SOFTWARE II | CH: 64 | Freq: 87.5% | Nota: 8.3 | Situação: APR
+2019.2 | COM212 | GERÊNCIA DE PROJETO DE SOFTWARE | CH: 64 | Freq: 100.0% | Nota: 1.9 | Situação: REP
+2019.2 | COM220 | COMPUTAÇÃO ORIENTADA A OBJETOS I | CH: 64 | Freq: 78.1% | Nota: 2.4 | Situação: REP
+2019.2 | MAT001 | MODALIDADE EAD. | CH: 96 | Freq: 100.0% | Nota: 3.4 | Situação: REP
+2019.2 | MAT011 | REPETENTES NA MODALIDADE EAD. | CH: 64 | Freq: 100.0% | Nota: 1.5 | Situação: REP
+2020.1 | ADM061 | MARKETING OPERACIONAL | CH: 80 | Freq: 100.0% | Nota: 6.7 | Situação: APR
+2020.1 | COM212 | GERÊNCIA DE PROJETO DE SOFTWARE | CH: 64 | Freq: 100.0% | Nota: 8.5 | Situação: APR
+2020.1 | COM230 | BANCO DE DADOS I | CH: 64 | Freq: 75.0% | Nota: 6.1 | Situação: APR
+2020.1 | PGY055 | CRIATIVIDADE, DESIGN & MAKING | CH: 32 | Freq: 100.0% | Nota: 0.0 | Situação: REP
+2020.2 | CIC110 | ANÁLISE E PROJETO DE ALGORITMOS I | CH: 64 | Freq: 100.0% | Nota: 0.0 | Situação: REP
+2020.2 | MAT001 | CÁLCULO I | CH: 96 | Freq: 100.0% | Nota: 6.0 | Situação: APR
+2020.2 | MAT011 | GEOMETRIA ANALÍTICA E ÁLGEBRA LINEAR | CH: 64 | Freq: 100.0% | Nota: 6.0 | Situação: APR
+2020.2 | MAT015 | MATEMÁTICA DISCRETA | CH: 64 | Freq: 100.0% | Nota: 7.3 | Situação: APR
+2020.4 | MAT021 | EQUACOES DIFERENCIAIS I | CH: 64 | Freq: 100.0% | Nota: 3.0 | Situação: REP
+2021.1 | CIC250 | CÁLCULO NUMÉRICO PARA COMPUTAÇÃO | CH: 64 | Freq: 100.0% | Nota: 6.3 | Situação: APR
+2021.1 | CIC271 | PROCESSAMENTO DIGITAL DE IMAGENS | CH: 64 | Freq: 86.7% | Nota: 7.7 | Situação: APR
+2021.1 | MAT002 | CÁLCULO II | CH: 64 | Freq: 100.0% | Nota: 7.5 | Situação: APR
+2021.1 | MAT013 | PROBABILIDADE E ESTATÍSTICA | CH: 64 | Freq: 93.0% | Nota: 2.0 | Situação: REP

@@ -12,6 +12,8 @@ def parserDisciplina(texto):
 
         if linha.count(".") == 1 and linha.replace(".", "").isdigit():
             ano = linha
+            if ano == "2024.2":
+                break  # Interrompe quando atingir 2024.2
             i += 1
             continue
 
@@ -33,7 +35,7 @@ def parserDisciplina(texto):
                     "nota": nota if nota != '--' else "N/A",
                     "situacao": situacao
                 })
-                i += 8 
+                i += 8
             else:
                 i += 1
         else:
@@ -50,14 +52,3 @@ def salvaResultado(lista, caminho_saida):
                 f"Nota: {d['nota']} | Situação: {d['situacao']}\n"
             )
     print(f"[OK] Arquivo salvo em: {caminho_saida}")
-
-
-if __name__ == "__main__":
-    pdf_path = Path("../Datasets/historico_CCO-4.pdf")
-    output_txt = Path("disciplinas_extraidas.txt")
-
-    with fitz.open(pdf_path) as doc:
-        texto = "\n".join([page.get_text() for page in doc])
-
-    disciplinas = parserDisciplina(texto)
-    salvaResultado(disciplinas, output_txt)

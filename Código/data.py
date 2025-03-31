@@ -1,3 +1,16 @@
+historicos = [
+    "historico_CCO-1.pdf",
+    "historico_CCO-2.pdf",
+    "historico_CCO-3.pdf",
+    "historico_CCO-4.pdf",
+    "historico_CCO-5.pdf",
+    "historico_SIN-1.pdf",
+    "historico_SIN-2.pdf",
+    "historico_SIN-3.pdf",
+    "historico_SIN-4.pdf",
+    "historico_SIN-5.pdf",
+]
+
 materias = {
     1: {
         "codigo": "XDES01",

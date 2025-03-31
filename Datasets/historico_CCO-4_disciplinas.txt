@@ -48,9 +48,3 @@
 2024.1 | SIN413 | INTELIGÊNCIA DE NEGÓCIOS | CH: 64 | Freq: 100.0% | Nota: N/A | Situação: TRANC
 2024.1 | XRSC07 | COMPUTAÇÃO EM NUVEM | CH: 64 | Freq: 100.0% | Nota: 6.0 | Situação: APR
 2024.1 | XRSC09 | SISTEMAS DISTRIBUÍDOS | CH: 64 | Freq: 75.0% | Nota: 6.0 | Situação: APR
-2024.2 | CRSC04 | ARQUITETURA DE COMPUTADORES II | CH: 64 | Freq: 100.0% | Nota: N/A | Situação: MATR
-2024.2 | XMCO01 | INTELIGÊNCIA ARTIFICIAL | CH: 64 | Freq: 100.0% | Nota: N/A | Situação: MATR
-2024.2 | XPAD04 | BANCOS DE DADOS NOSQL | CH: 64 | Freq: 100.0% | Nota: N/A | Situação: MATR
-2024.2 | Dispensado | Cancelado | CH: 0 | Freq: 0.0% | Nota: Matriculado | Situação: DISP
-32.0 | Trancado | Reprovado por nota e falta | CH: 0 | Freq: 0.0% | Nota: Transferido | Situação: TRANC
-32.0 | Cumpriu | Incorporado | CH: 0 | Freq: 6.0% | Nota: Página | Situação: CUMP

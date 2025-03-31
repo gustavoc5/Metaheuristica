@@ -1,0 +1,31 @@
+2022.1 | IEPG01 | EMPREENDEDORISMO E INOVAÇÃO | CH: 48 | Freq: 93.0% | Nota: 9.2 | Situação: APR
+2022.1 | IEPG22 | ADMINISTRAÇÃO APLICADA | CH: 32 | Freq: 93.0% | Nota: 10.0 | Situação: APR
+2022.1 | MAT00A | CÁLCULO A | CH: 64 | Freq: 100.0% | Nota: 2.1 | Situação: REP
+2022.1 | SAHC04 | PROJETO INTEGRADO | CH: 32 | Freq: 91.0% | Nota: 9.4 | Situação: APR
+2022.1 | SAHC05 | FUNDAMENTOS DE SISTEMAS DE INFORMAÇÃO | CH: 64 | Freq: 100.0% | Nota: 9.5 | Situação: APR
+2022.1 | XDES01 | FUNDAMENTOS DE PROGRAMAÇÃO | CH: 64 | Freq: 100.0% | Nota: 9.9 | Situação: APR
+2022.2 | ECN001 | ECONOMIA | CH: 48 | Freq: 100.0% | Nota: 7.2 | Situação: APR
+2022.2 | IEPG04 | MAPEAMENTO DE PROCESSOS | CH: 32 | Freq: 100.0% | Nota: 7.7 | Situação: APR
+2022.2 | STCO01 | ALGORITMOS E PROGRAMAÇÃO I | CH: 64 | Freq: 85.0% | Nota: 0.0 | Situação: REP
+2022.2 | XDES02 | PROGRAMAÇÃO ORIENTADA A OBJETOS | CH: 64 | Freq: 84.0% | Nota: 4.0 | Situação: REP
+2022.2 | XDES04 | ENGENHARIA DE SOFTWARE I | CH: 64 | Freq: 87.0% | Nota: 8.8 | Situação: APR
+2022.2 | XMAC01 | MATEMÁTICA DISCRETA | CH: 64 | Freq: 90.0% | Nota: 7.9 | Situação: APR
+2022.4 | MAT00A | CÁLCULO A | CH: 64 | Freq: 100.0% | Nota: 2.3 | Situação: REP
+2023.1 | ADM08H | GRUPO | CH: 48 | Freq: 100.0% | Nota: 8.8 | Situação: APR
+2023.1 | IEPG10 | ENGENHARIA ECONÔMICA | CH: 48 | Freq: 100.0% | Nota: N/A | Situação: TRANC
+2023.1 | IEPG13 | CUSTOS EMPRESARIAIS | CH: 48 | Freq: 100.0% | Nota: N/A | Situação: TRANC
+2023.1 | MAT00A | CÁLCULO A | CH: 64 | Freq: 100.0% | Nota: 0.4 | Situação: REP
+2023.1 | SDES05 | ENGENHARIA DE SOFTWARE II | CH: 64 | Freq: 78.0% | Nota: 9.9 | Situação: APR
+2023.1 | SRSC03 | ORGANIZAÇÃO E ARQUITETURA DE COMPUTADORES | CH: 64 | Freq: 87.0% | Nota: 6.0 | Situação: APR
+2023.1 | XDES02 | PROGRAMAÇÃO ORIENTADA A OBJETOS | CH: 64 | Freq: 84.0% | Nota: 4.4 | Situação: REP
+2023.2 | IEPG10 | ENGENHARIA ECONÔMICA | CH: 48 | Freq: 87.0% | Nota: 8.2 | Situação: APR
+2023.2 | IEPG14 | COMPORTAMENTO ORGANIZACIONAL I | CH: 32 | Freq: 100.0% | Nota: 6.7 | Situação: APR
+2023.2 | IEPG21 | CIÊNCIAS HUMANAS E SOCIAIS | CH: 48 | Freq: 93.0% | Nota: 9.4 | Situação: APR
+2023.2 | STCO01 | ALGORITMOS E PROGRAMAÇÃO I | CH: 64 | Freq: 81.0% | Nota: 8.1 | Situação: APR
+2023.2 | XDES02 | PROGRAMAÇÃO ORIENTADA A OBJETOS | CH: 64 | Freq: 81.0% | Nota: 8.1 | Situação: APR
+2023.2 | XMAC02 | MÉTODOS MATEMÁTICOS PARA ANÁLISE DE DADOS | CH: 64 | Freq: 81.0% | Nota: 6.5 | Situação: APR
+2024.1 | PGY052 | EDUCAÇÃO FINANCEIRA | CH: 32 | Freq: 100.0% | Nota: 10.0 | Situação: APR
+2024.1 | SADG01 | GESTÃO E GOVERNANÇA DE TI | CH: 64 | Freq: 100.0% | Nota: 9.7 | Situação: APR
+2024.1 | SPAD03 | INTRODUÇÃO À ANÁLISE DE DADOS | CH: 64 | Freq: 87.0% | Nota: 6.9 | Situação: APR
+2024.1 | STCO02 | ALGORITMOS E PROGRAMAÇÃO II | CH: 64 | Freq: 84.0% | Nota: 10.0 | Situação: APR
+2024.1 | XDES03 | PROGRAMAÇÃO WEB | CH: 64 | Freq: 81.0% | Nota: 7.2 | Situação: APR

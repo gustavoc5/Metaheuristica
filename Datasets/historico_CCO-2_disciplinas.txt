@@ -1,0 +1,24 @@
+2022.1 | CAHC04 | PROJETO INTEGRADO | CH: 32 | Freq: 81.0% | Nota: 6.8 | Situação: APR
+2022.1 | CRSC03 | ARQUITETURA DE COMPUTADORES I | CH: 64 | Freq: 93.0% | Nota: 5.2 | Situação: REP
+2022.1 | MAT00A | CÁLCULO A | CH: 64 | Freq: 100.0% | Nota: 2.8 | Situação: REP
+2022.1 | XDES01 | FUNDAMENTOS DE PROGRAMAÇÃO | CH: 64 | Freq: 87.0% | Nota: 4.3 | Situação: REP
+2022.1 | XMAC01 | MATEMÁTICA DISCRETA | CH: 64 | Freq: 100.0% | Nota: 6.0 | Situação: APR
+2022.2 | CDES05 | PROGRAMAÇÃO LÓGICA E FUNCIONAL | CH: 64 | Freq: 84.0% | Nota: 8.2 | Situação: APR
+2022.2 | MAT001 | CÁLCULO I | CH: 96 | Freq: 100.0% | Nota: 6.6 | Situação: APR
+2022.2 | XDES01 | FUNDAMENTOS DE PROGRAMAÇÃO | CH: 64 | Freq: 87.0% | Nota: 6.2 | Situação: APR
+2023.1 | CRSC03 | ARQUITETURA DE COMPUTADORES I | CH: 64 | Freq: 81.0% | Nota: 7.4 | Situação: APR
+2023.1 | XDES02 | PROGRAMAÇÃO ORIENTADA A OBJETOS | CH: 64 | Freq: 84.0% | Nota: 6.0 | Situação: APR
+2023.1 | XMCO08 | TEORIA DOS JOGOS | CH: 64 | Freq: 75.0% | Nota: 8.5 | Situação: APR
+2023.2 | CMAC04 | MODELAGEM COMPUTACIONAL | CH: 64 | Freq: 100.0% | Nota: 6.0 | Situação: APR
+2023.2 | CRSC04 | ARQUITETURA DE COMPUTADORES II | CH: 64 | Freq: 75.0% | Nota: 7.4 | Situação: APR
+2023.2 | CTCO01 | ALGORITMOS E ESTRUTURA DE DADOS I | CH: 64 | Freq: 100.0% | Nota: 6.0 | Situação: APR
+2023.2 | IEPG14 | COMPORTAMENTO ORGANIZACIONAL I | CH: 32 | Freq: 100.0% | Nota: N/A | Situação: TRANC
+2023.2 | XDES03 | PROGRAMAÇÃO WEB | CH: 64 | Freq: 75.0% | Nota: 7.6 | Situação: APR
+2023.2 | XMAC02 | MÉTODOS MATEMÁTICOS PARA ANÁLISE DE DADOS | CH: 64 | Freq: 75.0% | Nota: 7.4 | Situação: APR
+2024.1 | CMAC03 | ALGORITMOS EM GRAFOS | CH: 64 | Freq: 81.0% | Nota: 6.5 | Situação: APR
+2024.1 | CMCO05 | INTRODUÇÃO À COMPUTAÇÃO VISUAL | CH: 64 | Freq: 78.0% | Nota: 8.6 | Situação: APR
+2024.1 | CRSC02 | SISTEMAS OPERACIONAIS | CH: 64 | Freq: 75.0% | Nota: 6.0 | Situação: APR
+2024.1 | CTCO02 | ALGORITMOS E ESTRUTURA DE DADOS II | CH: 64 | Freq: 84.0% | Nota: 7.8 | Situação: APR
+2024.1 | CTCO03 | ANÁLISE E PROJETO ORIENTADOS A OBJETO | CH: 64 | Freq: 87.0% | Nota: 6.4 | Situação: APR
+2024.1 | XAHC02 | INTERAÇÃO HUMANO-COMPUTADOR | CH: 64 | Freq: 100.0% | Nota: 6.5 | Situação: APR
+2024.1 | XDES04 | ENGENHARIA DE SOFTWARE I | CH: 64 | Freq: 100.0% | Nota: 8.8 | Situação: APR
