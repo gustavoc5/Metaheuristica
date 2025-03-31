@@ -44,11 +44,11 @@ def parserDisciplina(texto):
     return disciplinas
 
 
-def salvaResultado(lista, caminho_saida):
-    with open(caminho_saida, "w", encoding="utf-8") as f:
+def salvaResultado(lista, caminho):
+    with open(caminho, "w", encoding="utf-8") as f:
         for d in lista:
             f.write(
                 f"{d['ano']} | {d['codigo']} | {d['nome']} | CH: {d['ch']} | Freq: {d['frequencia']}% | "
                 f"Nota: {d['nota']} | Situação: {d['situacao']}\n"
             )
-    print(f"[OK] Arquivo salvo em: {caminho_saida}")
+    print(f"[OK] Arquivo salvo em: {caminho}")
