@@ -1,0 +1,71 @@
+Objetivo: O objetivo deste trabalho é
+propor uma solução que auxilie os discentes dos cursos de Ciência da Computação e de Sistemas de
+Informação, na escolha das disciplinas mais adequadas para se matricular. A partir do histórico
+acadêmico mais atual, a solução recomenda disciplinas que mais beneficiariam o aluno caso seja
+aprovado
+
+Variáveis e restrições: Horários, Pré Requisito, Preferência do Aluno, Oferta, Limite de CH.
+
+Referências: A ver
+Ideias de termos para pesquisar artigos no google Academic
+"course recommendation system"
+"academic course scheduling optimization"
+"curriculum planning optimization"
+"metaheuristics in course recommendation"
+"timetabling and course selection"
+"student schedule optimization"
+"simulated annealing course scheduling"
+"artificial bee colony curriculum"
+"course prerequisite graph optimization"
+"personalized academic recommendation system"
+
+Dataset: O dataset foi fornecido no formato PDF, contendo o histórico escolar emitido pelo SIGAA. Ele é composto por blocos com estrutura semipadrão, cada um representando uma disciplina cursada ou em andamento. Cada bloco traz o ano/período letivo, nome da disciplina, código, carga horária, frequência e nota e resultado.
+//
+
+Para permitir a aplicação eficiente de heurísticas e metaheurísticas ao problema de recomendação de matrícula, os dados extraídos do histórico escolar e da oferta de disciplinas foram estruturados em dicionários e listas em Python. Essa organização visa garantir a flexibilidade no acesso às informações e o cumprimento de restrições durante a construção e avaliação das soluções.
+
+* calcular aproveitamento nos últimos 3 semestres (logo no início)
+
+2 :{
+        "nome":"CRSC03",
+        "ch": "64",
+        "horario": 0, 
+        "anual": 0, # 0 pra semestre, 1 pra anual
+        "requisito": 0, # quais disciplinas são pré requisito dessa
+        "equivalentes": [],
+        "situacao": 0,  # 0 = não cursada, -1 = reprovado, 1 = aprovado  
+        "parametro": 
+    },
+
+# Dicionário de dias da semana
+semana = {
+    2: 'Segunda',
+    3: 'Terça',
+    4: 'Quarta',
+    5: 'Quinta',
+    6: 'Sexta'
+}
+
+# Dicionário de horários
+horarios = {
+    0: "7h00 - 7h55",
+    1: "7h55 - 9h45",
+    2: "10h10 - 12h00",
+    3: "13h30 - 15h20",
+    4: "15h45 - 17h35",
+    5: "17h35 - 18h30", 
+    6: "19h00 - 20h40",
+    7: "21h00 - 22h40",
+    8: "22h40 - 23h30" 
+}
+
+
+Parser em python e as pesquisas e força bruta para inserção das matérias dos cursos de computação
+
+
+Conceitos: 
+- Academic Scheduling
+- Metaheurística
+- Simulate Anealing (Metaheurística de solução única)
+- Artificial Bee Colony (Metaheurística populacional)
+- Dataset
