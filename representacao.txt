@@ -1,0 +1,23 @@
+### Período correto - *1000
++
+Obrigatória ou Optativa - *100          somar CH optativa do historico para ofertar ou não
++ 
+Pré requisito de quantas (tentar ver busca) - 0 a 6 -  *10
++
+Distância do semestre (to no semestre 4 e disciplina do semestre 1) *5
++
+Anual ou Semestral  - peso 1 anual  peso 0.5 semestral - *2
+=
+FUNÇÃO OBJETIVO = MAT 1 + MAT 2 + MAT 3
+
+# tabela de aproveitamento de CH nos últimos 2 semestres - 75% * 384 (6 matérias) = 288 = (4,5 matérias)
+0%  - 25%    -   0h
+25% - 50%    -   32h a mais
+50% - 75%    -   48h a mais
+75% - 100%   -   64h a mais
+Considerando CH  - UPPER BOUND
+Verificar        - LOWER BOUND
+# função para calcular disciplinas viáveis
+# lista com disciplinas viáveis
+# ver estratégia aleatória
+# ranqueamento das disciplinas

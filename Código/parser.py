@@ -22,8 +22,8 @@ def parserDisciplina(texto):
             situacao = linhas[i + 2].strip()
             codigo = linhas[i + 3].strip()
             ch = linhas[i + 4].strip()
-            freq = linhas[i + 5].strip().replace(",", ".")
-            nota = linhas[i + 6].strip().replace(",", ".")
+            # freq = linhas[i + 5].strip().replace(",", ".")
+            # nota = linhas[i + 6].strip().replace(",", ".")
 
             if codigo and codigo.isalnum() and situacao in ['APR', 'REPF', 'REPNF', 'TRANC', 'MATR', 'CUMP', 'DISP', 'REP']:
                 disciplinas.append({
@@ -31,8 +31,8 @@ def parserDisciplina(texto):
                     "codigo": codigo,
                     "nome": nome,
                     "ch": int(ch) if ch.isdigit() else 0,
-                    "frequencia": float(freq) if freq.replace('.', '', 1).isdigit() else 0.0,
-                    "nota": nota if nota != '--' else "N/A",
+                    # "frequencia": float(freq) if freq.replace('.', '', 1).isdigit() else 0.0,
+                    # "nota": nota if nota != '--' else "N/A",
                     "situacao": situacao
                 })
                 i += 8
@@ -48,7 +48,6 @@ def salvaResultado(lista, caminho):
     with open(caminho, "w", encoding="utf-8") as f:
         for d in lista:
             f.write(
-                f"{d['ano']} | {d['codigo']} | {d['nome']} | CH: {d['ch']} | Freq: {d['frequencia']}% | "
-                f"Nota: {d['nota']} | Situação: {d['situacao']}\n"
+                f"{d['ano']} | {d['codigo']} | {d['nome']} | CH: {d['ch']} | Situação: {d['situacao']}\n"
             )
     print(f"[OK] Arquivo salvo em: {caminho}")

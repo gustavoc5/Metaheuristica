@@ -11,6 +11,9 @@ historicos = [
     "historico_SIN-5.pdf",
 ]
 
+#add período nas disciplinas
+#dividir sin e cco 
+
 materias = {
     1: {
         "codigo": "XDES01",
@@ -22,6 +25,8 @@ materias = {
         "equivalentes": ["COM110","ECOP11A"],
         "situacao": 0,
         "parametro": 0,
+        "periodo": 1,
+        "obrigatoria": 1,   #1 pra obrigatoria, 0 pra optativa   
     },
     2: {
         "codigo": "MAT00A",
@@ -30,7 +35,7 @@ materias = {
         "horario": [],
         "anual": 0,
         "requisito": 0,
-        "equivalentes": ["MAT001",],
+        "equivalentes": ["MAT001"],
         "situacao": 0,
         "parametro": 0,
     },
@@ -595,6 +600,4 @@ materias = {
         "situacao": 0,
         "parametro": 0,
     },
-    
-    
 }

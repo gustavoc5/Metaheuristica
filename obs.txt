@@ -49,7 +49,7 @@ semana = {
 # Dicionário de horários
 horarios = {
     0: "7h00 - 7h55",
-    1: "7h55 - 9h45",
+    1: "7h55 - 9h45", 
     2: "10h10 - 12h00",
     3: "13h30 - 15h20",
     4: "15h45 - 17h35",
