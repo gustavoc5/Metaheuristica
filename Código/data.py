@@ -39,6 +39,7 @@ cco = {
         "situacao": 0,
         "parametro": 0,
         "periodo": 1,
+        "obrigatoria": 1,
     },
     3: {
         "codigo": "XMAC01",
@@ -51,6 +52,7 @@ cco = {
         "situacao": 0,
         "parametro": 0,
         "periodo": 1,
+        "obrigatoria": 1,
     },
     4: {
         "codigo": "CAHC04",
@@ -63,6 +65,7 @@ cco = {
         "situacao": 0,
         "parametro": 0,
         "periodo": 1,
+        "obrigatoria": 1,
     },
     5: {
         "codigo": "CTCO01",
@@ -75,6 +78,7 @@ cco = {
         "situacao": 0,
         "parametro": 0,
         "periodo": 2,
+        "obrigatoria": 1,
     },
     53: {
         "codigo": "CRSC03",
@@ -87,6 +91,7 @@ cco = {
         "situacao": 0,
         "parametro": 0,
         "periodo": 1,
+        "obrigatoria": 1,
     },
     6: {
         "codigo": "CRSC04",
@@ -99,6 +104,7 @@ cco = {
         "situacao": 0,
         "parametro": 0,
         "periodo": 2,
+        "obrigatoria": 1,
     },
     7: {
         "codigo": "MAT00B",
@@ -111,6 +117,7 @@ cco = {
         "situacao": 0,
         "parametro": 0,
         "periodo": 2,
+        "obrigatoria": 1,
     },
     8: {
         "codigo": "CMAC04",
@@ -123,6 +130,7 @@ cco = {
         "situacao": 0,
         "parametro": 0,
         "periodo": 2,
+        "obrigatoria": 1,
     },
     9: {
         "codigo": "CTCO02",
@@ -135,6 +143,7 @@ cco = {
         "situacao": 0,
         "parametro": 0,
         "periodo": 3,
+        "obrigatoria": 1,
     },
     10: {
         "codigo": "XDES02",
@@ -146,7 +155,8 @@ cco = {
         "equivalentes": ["COM220","ECOP13A"],
         "situacao": 0,
         "parametro": 0,
-        "periodo": 3
+        "periodo": 3,
+        "obrigatoria": 1,
     },
     11: {
         "codigo": "XDES04",
@@ -159,6 +169,8 @@ cco = {
         "situacao": 0,
         "parametro": 0,
         "periodo": 3,
+        "obrigatoria": 1,
+        
     },
     12: {
         "codigo": "CRSC02",
@@ -171,6 +183,7 @@ cco = {
         "situacao": 0,
         "parametro": 0,
         "periodo": 3,
+        "obrigatoria": 1,
     },
     13: {
         "codigo": "CMAC03",
@@ -183,6 +196,7 @@ cco = {
         "situacao": 0,
         "parametro": 0,
         "periodo": 3,
+        "obrigatoria": 1,
     },
     14: {
         "codigo": "XMAC02",
@@ -195,6 +209,7 @@ cco = {
         "situacao": 0,
         "parametro": 0,
         "periodo": 3,
+        "obrigatoria": 1,
     },
     15: {
         "codigo": "CTCO04",
@@ -207,6 +222,7 @@ cco = {
         "situacao": 0,
         "parametro": 0,
         "periodo": 4,
+        "obrigatoria": 1,
     },
     16: {
         "codigo": "XDES03",
@@ -219,6 +235,7 @@ cco = {
         "situacao": 0,
         "parametro": 0,
         "periodo": 4,
+        "obrigatoria": 1,
     },
     17: {
         "codigo": "CDES05",
@@ -231,6 +248,7 @@ cco = {
         "situacao": 0,
         "parametro": 0,
         "periodo": 4,
+        "obrigatoria": 1,
     },
     18: {
         "codigo": "XRSC01",
@@ -243,6 +261,7 @@ cco = {
         "situacao": 0,
         "parametro": 0,
         "periodo": 4,
+        "obrigatoria": 1,
     },
     19: {
         "codigo": "CRSC05",
@@ -255,6 +274,7 @@ cco = {
         "situacao": 0,
         "parametro": 0,
         "periodo": 4,
+        "obrigatoria": 1,
     },
     20: {
         "codigo": "CMAC05",
@@ -267,6 +287,7 @@ cco = {
         "situacao": 0,
         "parametro": 0,
         "periodo": 4,
+        "obrigatoria": 1,
     },
     21: {
         "codigo": "CTCO03",
@@ -279,6 +300,7 @@ cco = {
         "situacao": 0,
         "parametro": 0,
         "periodo": 5,
+        "obrigatoria": 1,
     },
     22: {
         "codigo": "CTCO05",
@@ -291,6 +313,7 @@ cco = {
         "situacao": 0,
         "parametro": 0,
         "periodo": 5,
+        "obrigatoria": 1,
     },
     23: {
         "codigo": "XPAD01",
@@ -303,6 +326,7 @@ cco = {
         "situacao": 0,
         "parametro": 0,
         "periodo": 5,
+        "obrigatoria": 1,
     },
     24: {
         "codigo": "XMCO01",
@@ -315,6 +339,7 @@ cco = {
         "situacao": 0,
         "parametro": 0,
         "periodo": 5,
+        "obrigatoria": 1,
     },
     25: {
         "codigo": "CMCO05",
@@ -327,6 +352,7 @@ cco = {
         "situacao": 0,
         "parametro": 0,
         "periodo": 5,
+        "obrigatoria": 1,
     },
     26: {
         "codigo": "CTCO06",
@@ -339,6 +365,7 @@ cco = {
         "situacao": 0,
         "parametro": 0,
         "periodo": 6,
+        "obrigatoria": 1,
     },
     27: {
         "codigo": "XAHC02",
@@ -351,6 +378,8 @@ cco = {
         "situacao": 0,
         "parametro": 0,
         "periodo": 6,
+        "periodo": 7,
+        "obrigatoria": 1,
     },
     28: {
         "codigo": "XAHC03",
@@ -363,6 +392,7 @@ cco = {
         "situacao": 0,
         "parametro": 0,
         "periodo": 7,
+        "obrigatoria": 1,
     },
     29: {
         "codigo": "XAHC01",
@@ -375,6 +405,7 @@ cco = {
         "situacao": 0,
         "parametro": 0,
         "periodo": 7,
+        "obrigatoria": 1,
     },
     51: {
         "codigo": "TCC1",
@@ -386,6 +417,8 @@ cco = {
         "equivalentes": [],
         "situacao": 0,
         "parametro": 0,
+        "periodo": 7,
+        "obrigatoria": 1,
     },
     52: {
         "codigo": "TCC2",
@@ -397,6 +430,8 @@ cco = {
         "equivalentes": [],
         "situacao": 0,
         "parametro": 0,
+        "periodo": 8,
+        "obrigatoria": 1,
     },
 }
 
@@ -425,6 +460,7 @@ sin = {
         "situacao": 0,
         "parametro": 0,
         "periodo": 1,
+        "obrigatoria": 1,
     },
     3: {
         "codigo": "XMAC01",
@@ -437,6 +473,7 @@ sin = {
         "situacao": 0,
         "parametro": 0,
         "periodo": 2,
+        "obrigatoria": 1,
     },
     4: {
         "codigo": "CAHC04",
@@ -449,62 +486,10 @@ sin = {
         "situacao": 0,
         "parametro": 0,
         "periodo": 1,
+        "obrigatoria": 1,
     },
-    5: {
-        "codigo": "CTCO01",
-        "nome": "Algoritmo e Estrutura de Dados 1",
-        "ch": "64",
-        "horario": [],
-        "anual": 1,
-        "requisito": ["1"],
-        "equivalentes": ["COM111","STCO01","ECOP02A"],
-        "situacao": 0,
-        "parametro": 0,
-    },
-    53: {
-        "codigo": "CRSC03",
-        "nome": "Arquitetura de Computadores 1",
-        "ch": "64",
-        "horario": [],
-        "anual": 1,
-        "requisito": [],
-        "equivalentes": ["CIC120","ELTD01A"and "ELTD11A"],
-        "situacao": 0,
-        "parametro": 0,
-    },
-    6: {
-        "codigo": "CRSC04",
-        "nome": "Arquitetura de Computadores 2",
-        "ch": "64",
-        "horario": [],
-        "anual": 1,
-        "requisito": ["53"],
-        "equivalentes": ["CIC121","ECOX01"],
-        "situacao": 0,
-        "parametro": 0,
-    },
-    8: {
-        "codigo": "CMAC04",
-        "nome": "Modelagem Computacional",
-        "ch": "64",
-        "horario": [],
-        "anual": 1,
-        "requisito": ["2"],
-        "equivalentes": ["CIC510"],
-        "situacao": 0,
-        "parametro": 0,
-    },
-    9: {
-        "codigo": "CTCO02",
-        "nome": "Algoritmo e Estrutura de Dados 2",
-        "ch": "64",
-        "horario": [],
-        "anual": 1,
-        "requisito": ["5"],
-        "equivalentes": ["COM112","STCO02"],
-        "situacao": 0,
-        "parametro": 0,
-    },
+ 
+   
     10: {
         "codigo": "XDES02",
         "nome": "Programação Orientada a Objetos",
@@ -516,6 +501,7 @@ sin = {
         "situacao": 0,
         "parametro": 0,
         "periodo": 3,
+        "obrigatoria": 1,
     },
     11: {
         "codigo": "XDES04",
@@ -528,31 +514,9 @@ sin = {
         "situacao": 0,
         "parametro": 0,
         "periodo": 3,
+        "obrigatoria": 1,
     },
-    12: {
-        "codigo": "CRSC02",
-        "nome": "Sistemas Operacionais",
-        "ch": "64",
-        "horario": [],
-        "anual": 1,
-        "requisito": ["5", "6"],
-        "equivalentes": ["COM120","ECOS01A"and "ECOS11A"],
-        "situacao": 0,
-        "parametro": 0,
-    },
-    
 
-    15: {
-        "codigo": "CTCO04",
-        "nome": "Projeto e Análise de Algoritmos",
-        "ch": "64",
-        "horario": [],
-        "anual": 1,
-        "requisito": ["9"],
-        "equivalentes": ["CIC110"],
-        "situacao": 0,
-        "parametro": 0,
-    },
     16: {
         "codigo": "XDES03",
         "nome": "Programação Web",
@@ -564,18 +528,9 @@ sin = {
         "situacao": 0,
         "parametro": 0,
         "periodo": 4,
+        "obrigatoria": 1,
     },
-    17: {
-        "codigo": "CDES05",
-        "nome": "Programação Lógica e Funcional",
-        "ch": "64",
-        "horario": [],
-        "anual": 1,
-        "requisito": ["3"],
-        "equivalentes": ["CIC131"],
-        "situacao": 0,
-        "parametro": 0,
-    },
+    
     18: {
         "codigo": "XRSC01",
         "nome": "Redes de Computadores",
@@ -586,51 +541,10 @@ sin = {
         "equivalentes": ["COM240"],
         "situacao": 0,
         "parametro": 0,
+        "periodo": 5,
+        "obrigatoria": 1,
     },
-    19: {
-        "codigo": "CRSC05",
-        "nome": "Sistemas Embarcados",
-        "ch": "64",
-        "horario": [],
-        "anual": 1,
-        "requisito": ["12"],
-        "equivalentes": [],
-        "situacao": 0,
-        "parametro": 0,
-    },
-    20: {
-        "codigo": "CMAC05",
-        "nome": "Cálculo Numérico para Computação",
-        "ch": "64",
-        "horario": [],
-        "anual": 1,
-        "requisito": ["7"],
-        "equivalentes": ["CIC250"],
-        "situacao": 0,
-        "parametro": 0,
-    },
-    21: {
-        "codigo": "CTCO03",
-        "nome": "Análise e Projeto Orientados a Objeto",
-        "ch": "64",
-        "horario": [],
-        "anual": 0,
-        "requisito": ["16"],
-        "equivalentes": ["COM221"],
-        "situacao": 0,
-        "parametro": 0,
-    },
-    22: {
-        "codigo": "CTCO05",
-        "nome": "Teoria da Computação",
-        "ch": "64",
-        "horario": [],
-        "anual": 1,
-        "requisito": ["15", "17"],
-        "equivalentes": ["CIC132"],
-        "situacao": 0,
-        "parametro": 0,
-    },
+    
     23: {
         "codigo": "XPAD01",
         "nome": "Banco de Dados 1",
@@ -642,6 +556,7 @@ sin = {
         "situacao": 0,
         "parametro": 0,
         "periodo": 5,
+        "obrigatoria": 1,
     },
     24: {
         "codigo": "XMCO01",
@@ -653,29 +568,10 @@ sin = {
         "equivalentes": ["CIC260","SIN260"],
         "situacao": 0,
         "parametro": 0,
+        "periodo": 5,
+        "obrigatoria": 1,
     },
-    25: {
-        "codigo": "CMCO05",
-        "nome": "Introdução a Computação Visual",
-        "ch": "64",
-        "horario": [],
-        "anual": 1,
-        "requisito": ["14", "16"],
-        "equivalentes": ["CIC271"],
-        "situacao": 0,
-        "parametro": 0,
-    },
-    26: {
-        "codigo": "CTCO06",
-        "nome": "Compiladores",
-        "ch": "64",
-        "horario": [],
-        "anual": 1,
-        "requisito": ["22"],
-        "equivalentes": ["CIC220"],
-        "situacao": 0,
-        "parametro": 0,
-    },
+    
     27: {
         "codigo": "XAHC02",
         "nome": "Interação Humano-Computador",
@@ -686,6 +582,7 @@ sin = {
         "equivalentes": ["COM213"],
         "situacao": 0,
         "parametro": 0,
+        
     },
     28: {
         "codigo": "XAHC03",
@@ -708,6 +605,8 @@ sin = {
         "equivalentes": ["COM312"],
         "situacao": 0,
         "parametro": 0,
+        "periodo": 8,
+        "obrigatoria": 1,
     },
     30: {
         "codigo": "SAHC05",
@@ -719,6 +618,8 @@ sin = {
         "equivalentes": ["SIN410"],
         "situacao": 0,
         "parametro": 0,
+        "periodo": 1,
+        "obrigatoria": 1,
     },
     31: {
         "codigo": "IEPG01",
@@ -731,6 +632,7 @@ sin = {
         "situacao": 0,
         "parametro": 0,
         "periodo": 1,
+        "obrigatoria": 1,
     },
     32: {
         "codigo": "IEPG22",
@@ -743,6 +645,7 @@ sin = {
         "situacao": 0,
         "parametro": 0,
         "periodo": 1,
+        "obrigatoria": 1,
     },
     33: {
         "codigo": "STCO01",
@@ -754,6 +657,8 @@ sin = {
         "equivalentes": ["COM111","CTCO01","ECOP02A"],
         "situacao": 0,
         "parametro": 0,
+        "periodo": 2,
+        "obrigatoria": 1,
     },
     34: {
         "codigo": "IEPG04",
@@ -766,6 +671,7 @@ sin = {
         "situacao": 0,
         "parametro": 0,
         "periodo": 2,
+        "obrigatoria": 1,
     },
     35: {
         "codigo": "SDES05",
@@ -777,6 +683,7 @@ sin = {
         "equivalentes": ["COM211"],
         "situacao": 0,
         "parametro": 0,
+        "obrigatoria": 1,
     },
     36: {
         "codigo": "STCO02",
@@ -788,6 +695,8 @@ sin = {
         "equivalentes": ["COM112","CTCO02"],
         "situacao": 0,
         "parametro": 0,
+        "periodo": 3,
+        "obrigatoria": 1,
     },
     37: {
         "codigo": "SRSC03",
@@ -799,6 +708,8 @@ sin = {
         "equivalentes": ["SIN120","CRSC04","ECOX01"],
         "situacao": 0,
         "parametro": 0,
+        "periodo": 3,
+        "obrigatoria": 1,
     },
     38: {
         "codigo": "IEPG20",
@@ -811,6 +722,7 @@ sin = {
         "situacao": 0,
         "parametro": 0,
         "periodo": 3,
+        "obrigatoria": 1,
     },
     39: {
         "codigo": "XMAC02",
@@ -823,6 +735,7 @@ sin = {
         "situacao": 0,
         "parametro": 0,
         "periodo": 4,
+        "obrigatoria": 1,
     },
     40: {
         "codigo": "SMAC03",
@@ -835,6 +748,7 @@ sin = {
         "situacao": 0,
         "parametro": 0,
         "periodo": 4,
+        "obrigatoria": 1,
     },
     41: {
         "codigo": "SRSC02",
@@ -846,6 +760,8 @@ sin = {
         "equivalentes": ["COM120","ECOS01A" and "ECOS11A"],
         "situacao": 0,
         "parametro": 0,
+        "periodo": 4,
+        "obrigatoria": 1,
     },
     42: {
         "codigo": "IEPG14",
@@ -858,6 +774,7 @@ sin = {
         "situacao": 0,
         "parametro": 0,
         "periodo": 4,
+        "obrigatoria": 1,
     },
     43: {
         "codigo": "SPAD02",
@@ -869,6 +786,7 @@ sin = {
         "equivalentes": ["COM231"],
         "situacao": 0,
         "parametro": 0,
+        "obrigatoria": 1,
     },
     44: {
         "codigo": "SPAD03",
@@ -880,6 +798,8 @@ sin = {
         "equivalentes": [],
         "situacao": 0,
         "parametro": 0,
+        "periodo": 1,
+        "obrigatoria": 1,
     },
     45: {
         "codigo": "ADM51E",
@@ -892,6 +812,7 @@ sin = {
         "situacao": 0,
         "parametro": 0,
         "periodo": 5,
+        "obrigatoria": 1,
     },
     46: {
         "codigo": "SDES06",
@@ -903,6 +824,7 @@ sin = {
         "equivalentes": ["COM212"],
         "situacao": 0,
         "parametro": 0,
+        "obrigatoria": 1,
         
     },
     47: {
@@ -916,6 +838,7 @@ sin = {
         "situacao": 0,
         "parametro": 0,
         "periodo": 6,
+        "obrigatoria": 1,
     },
     48: {
         "codigo": "SDES07",
@@ -928,6 +851,7 @@ sin = {
         "situacao": 0,
         "parametro": 0,
         "periodo": 7,
+        "obrigatoria": 1,
     },
     49: {
         "codigo": "ADM03E",
@@ -940,9 +864,10 @@ sin = {
         "situacao": 0,
         "parametro": 0,
         "periodo": 8,
+        "obrigatoria": 1,
     },
     50: {
-        "codigo": "XAHC03",
+        "codigo": "SADG01",
         "nome": "Gestão e Governança de TI",
         "ch": "64",
         "horario": [],
@@ -952,6 +877,7 @@ sin = {
         "situacao": 0,
         "parametro": 0,
         "periodo": 9,
+        "obrigatoria": 1,
     },
     51: {
         "codigo": "TCC1",
@@ -963,6 +889,8 @@ sin = {
         "equivalentes": [],
         "situacao": 0,
         "parametro": 0,
+        "periodo": 8,
+        "obrigatoria": 1,
     },
     52: {
         "codigo": "TCC2",
@@ -970,9 +898,11 @@ sin = {
         "ch": "64",
         "horario": [],
         "anual": 0,
-        "requisito": ["28"],
+        "requisito": ["28" and "51"],
         "equivalentes": [],
         "situacao": 0,
         "parametro": 0,
+        "periodo": 9,
+        "obrigatoria": 1,
     },
 }
