@@ -139,22 +139,27 @@ def pontuar_disciplinas_viaveis(dicionario, disciplinas_viaveis, periodo_entrada
                 total += 1 + contar_dependencias(dicionario, id_, visitados)
         return total
 
+    # Transforma a lista 'disciplinas_viaveis' em conjunto de códigos
+    codigos_viaveis = set([s.split(" - ")[0] for s in disciplinas_viaveis])
+
     periodos = gerar_lista_periodos(periodo_entrada, periodo_final)
     periodo_atual = len(periodos)
 
     resultados = []
 
     for id_disc, dados in dicionario.items():
-        chave = f'{dados["codigo"]} - {dados["nome"]}'
-        if chave not in disciplinas_viaveis:
+        if dados["codigo"] not in codigos_viaveis:
             continue
 
         obrigatoria = dados.get("obrigatoria", 0)
         impacto_requisitos = contar_dependencias(dicionario, id_disc)
-        distancia_periodo = max(0, periodo_atual - dados.get("periodo", periodo_atual))
+        distancia_periodo = periodo_atual - dados.get("periodo", periodo_atual)
         anual = dados.get("anual", 0)
 
         nota = obrigatoria * 100 + impacto_requisitos * 10 + distancia_periodo * 5 + anual
+
+        # Atualiza diretamente no dicionário
+        dicionario[id_disc]["parametro"] = nota
 
         resultados.append({
             "codigo": dados["codigo"],
@@ -163,6 +168,7 @@ def pontuar_disciplinas_viaveis(dicionario, disciplinas_viaveis, periodo_entrada
         })
 
     return resultados
+
 
 def funcao_objetivo(dicionario, candidatas, limite_ch):
     # Estratégia gulosa
@@ -176,8 +182,8 @@ def funcao_objetivo(dicionario, candidatas, limite_ch):
                 "parametro": dados["parametro"]
             })
 
-    # Ordena pela maior razão benefício/custo (parametro / ch)
-    disciplinas_info.sort(key=lambda d: d["parametro"] / d["ch"], reverse=True)
+    # Ordena pela maior razão benefício/custo (parametro)
+    disciplinas_info.sort(key=lambda d: d["parametro"], reverse=True)
 
     ch_total = 0
     pontuacao_total = 0
@@ -232,7 +238,7 @@ if __name__ == "__main__":
             print("• CH aprovada:", resultado["ch_aprovada"])
             print("• Períodos analisados:", ", ".join(resultado["periodos_analisados"]))
 
-            candidatas = [codigo for codigo, dados in dicionario.items()
+            candidatas = [dados["codigo"] for dados in dicionario.values()
               if dados["situacao"] != 1 and dados["parametro"] > 0]
 
             selecionadas, pontuacao = funcao_objetivo(dicionario, candidatas, resultado["limite_final"])
