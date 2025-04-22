@@ -1,12 +1,10 @@
-### Período correto - *1000
-+
 Obrigatória ou Optativa - *100          somar CH optativa do historico para ofertar ou não
 + 
 Pré requisito de quantas (tentar ver busca) - 0 a 6 -  *10
 +
 Distância do semestre (to no semestre 4 e disciplina do semestre 1) *5
 +
-Anual ou Semestral  - peso 1 anual  peso 0.5 semestral - *2
+Anual ou Semestral  - peso 1 anual  peso 0.5 semestral - *1
 =
 FUNÇÃO OBJETIVO = MAT 1 + MAT 2 + MAT 3
 
