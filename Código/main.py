@@ -48,7 +48,7 @@ def atualizar_situacoes(path_txt, dicionario):
 
         for item in dicionario.values():
             if item["codigo"] == codigo or codigo in item.get("equivalentes", []):
-                if situacao == "APR":
+                if situacao == "APR" or situacao == "CUMP":
                     item["situacao"] = 1
                 elif situacao.startswith("REP"):
                     item["situacao"] = -1
@@ -164,6 +164,33 @@ def pontuar_disciplinas_viaveis(dicionario, disciplinas_viaveis, periodo_entrada
 
     return resultados
 
+def funcao_objetivo(dicionario, candidatas, limite_ch):
+    # Estratégia gulosa
+    disciplinas_info = []
+    for id_disc, dados in dicionario.items():
+        if dados["codigo"] in candidatas:
+            disciplinas_info.append({
+                "id": id_disc,
+                "codigo": dados["codigo"],
+                "ch": int(dados["ch"]),
+                "parametro": dados["parametro"]
+            })
+
+    # Ordena pela maior razão benefício/custo (parametro / ch)
+    disciplinas_info.sort(key=lambda d: d["parametro"] / d["ch"], reverse=True)
+
+    ch_total = 0
+    pontuacao_total = 0
+    selecionadas = []
+
+    for disc in disciplinas_info:
+        if ch_total + disc["ch"] <= limite_ch:
+            ch_total += disc["ch"]
+            pontuacao_total += disc["parametro"]
+            selecionadas.append(disc["codigo"])
+
+    return selecionadas, pontuacao_total
+
 
 if __name__ == "__main__":
     for dataset in historicos:
@@ -205,5 +232,17 @@ if __name__ == "__main__":
             print("• CH aprovada:", resultado["ch_aprovada"])
             print("• Períodos analisados:", ", ".join(resultado["periodos_analisados"]))
 
+            candidatas = [codigo for codigo, dados in dicionario.items()
+              if dados["situacao"] != 1 and dados["parametro"] > 0]
+
+            selecionadas, pontuacao = funcao_objetivo(dicionario, candidatas, resultado["limite_final"])
+
+            print("\n✅ Sugestão final de matrícula:")
+            for codigo in selecionadas:
+                dados = next(v for v in dicionario.values() if v["codigo"] == codigo)
+                print(f"- {codigo} - {dados['nome']} (CH: {dados['ch']} | Pontuação: {dados['parametro']})")
+
+            print("📈 Pontuação total obtida:", pontuacao)
+            
         except Exception as e:
             print(f"[ERRO] Falha ao processar {caminho.name}: {e}")
