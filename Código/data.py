@@ -15,7 +15,7 @@ cco = {
     "1": {
         "codigo": "XDES01",
         "nome": "Fundamentos da Programação",
-        "ch": "64",
+        "ch": 64,
         "horario": [],
         "anual": 0,
         "requisito": 0,
@@ -28,7 +28,7 @@ cco = {
     "2": {
         "codigo": "MAT00A",
         "nome": "Cálculo A",
-        "ch": "64",
+        "ch": 64,
         "horario": [],
         "anual": 0,
         "requisito": 0,
@@ -41,7 +41,7 @@ cco = {
     "3": {
         "codigo": "XMAC01",
         "nome": "Matemática Discreta",
-        "ch": "64",
+        "ch": 64,
         "horario": [],
         "anual": 1,
         "requisito": 0,
@@ -54,7 +54,7 @@ cco = {
     "4": {
         "codigo": "CAHC04",
         "nome": "Projeto Integrado",
-        "ch": "32",
+        "ch": 32,
         "horario": [],
         "anual": 1,
         "requisito": 0,
@@ -67,7 +67,7 @@ cco = {
     "5": {
         "codigo": "CRSC03",
         "nome": "Arquitetura de Computadores 1",
-        "ch": "64",
+        "ch": 64,
         "horario": [],
         "anual": 1,
         "requisito": [],
@@ -80,7 +80,7 @@ cco = {
     "6": {
         "codigo": "CTCO01",
         "nome": "Algoritmo e Estrutura de Dados 1",
-        "ch": "64",
+        "ch": 64,
         "horario": [],
         "anual": 1,
         "requisito": ["1"],
@@ -93,7 +93,7 @@ cco = {
     "7": {
         "codigo": "CRSC04",
         "nome": "Arquitetura de Computadores 2",
-        "ch": "64",
+        "ch": 64,
         "horario": [],
         "anual": 1,
         "requisito": ["5"],
@@ -106,7 +106,7 @@ cco = {
     "8": {
         "codigo": "MAT00B",
         "nome": "Cálculo B",
-        "ch": "64",
+        "ch": 64,
         "horario": [],
         "anual": 0,
         "requisito": ["2"],
@@ -119,7 +119,7 @@ cco = {
     "9": {
         "codigo": "CMAC04",
         "nome": "Modelagem Computacional",
-        "ch": "64",
+        "ch": 64,
         "horario": [],
         "anual": 1,
         "requisito": ["2"],
@@ -132,7 +132,7 @@ cco = {
     "10": {
         "codigo": "CTCO02",
         "nome": "Algoritmo e Estrutura de Dados 2",
-        "ch": "64",
+        "ch": 64,
         "horario": [],
         "anual": 1,
         "requisito": ["6"],
@@ -145,7 +145,7 @@ cco = {
     "11": {
         "codigo": "XDES02",
         "nome": "Programação Orientada a Objetos",
-        "ch": "64",
+        "ch": 64,
         "horario": [],
         "anual": 0,
         "requisito": ["1"],
@@ -158,7 +158,7 @@ cco = {
     "12": {
         "codigo": "XDES04",
         "nome": "Engenharia de Software 1",
-        "ch": "64",
+        "ch": 64,
         "horario": [],
         "anual": 0,
         "requisito": 0,
@@ -171,7 +171,7 @@ cco = {
     "13": {
         "codigo": "CRSC02",
         "nome": "Sistemas Operacionais",
-        "ch": "64",
+        "ch": 64,
         "horario": [],
         "anual": 1,
         "requisito": ["6", "7"],
@@ -184,7 +184,7 @@ cco = {
     "14": {
         "codigo": "CMAC03",
         "nome": "Algoritmos em Grafos",
-        "ch": "64",
+        "ch": 64,
         "horario": [],
         "anual": 1,
         "requisito": ["6"],
@@ -197,7 +197,7 @@ cco = {
     "15": {
         "codigo": "XMAC02",
         "nome": "Métodos Matemáticos para Análise de Dados",
-        "ch": "64",
+        "ch": 64,
         "horario": [],
         "anual": 0,
         "requisito": ["2", "3", "6"],
@@ -210,7 +210,7 @@ cco = {
     "16": {
         "codigo": "CTCO04",
         "nome": "Projeto e Análise de Algoritmos",
-        "ch": "64",
+        "ch": 64,
         "horario": [],
         "anual": 1,
         "requisito": ["3", "10", "14"],
@@ -223,7 +223,7 @@ cco = {
     "17": {
         "codigo": "XDES03",
         "nome": "Programação Web",
-        "ch": "64",
+        "ch": 64,
         "horario": [],
         "anual": 0,
         "requisito": ["11"],
@@ -236,7 +236,7 @@ cco = {
     "18": {
         "codigo": "CDES05",
         "nome": "Programação Lógica e Funcional",
-        "ch": "64",
+        "ch": 64,
         "horario": [],
         "anual": 1,
         "requisito": ["3"],
@@ -249,7 +249,7 @@ cco = {
     "19": {
         "codigo": "XRSC01",
         "nome": "Redes de Computadores",
-        "ch": "64",
+        "ch": 64,
         "horario": [],
         "anual": 0,
         "requisito": ["13"],
@@ -262,7 +262,7 @@ cco = {
     "20": {
         "codigo": "CRSC05",
         "nome": "Sistemas Embarcados",
-        "ch": "64",
+        "ch": 64,
         "horario": [],
         "anual": 1,
         "requisito": ["6", "7"],
@@ -275,7 +275,7 @@ cco = {
     "21": {
         "codigo": "CMAC05",
         "nome": "Cálculo Numérico para Computação",
-        "ch": "64",
+        "ch": 64,
         "horario": [],
         "anual": 1,
         "requisito": ["2", "8"],
@@ -288,7 +288,7 @@ cco = {
     "22": {
         "codigo": "CTCO03",
         "nome": "Análise e Projeto Orientados a Objeto",
-        "ch": "64",
+        "ch": 64,
         "horario": [],
         "anual": 0,
         "requisito": ["11"],
@@ -301,7 +301,7 @@ cco = {
     "23": {
         "codigo": "CTCO05",
         "nome": "Teoria da Computação",
-        "ch": "64",
+        "ch": 64,
         "horario": [],
         "anual": 1,
         "requisito": ["16", "18"],
@@ -314,7 +314,7 @@ cco = {
     "24": {
         "codigo": "XPAD01",
         "nome": "Banco de Dados 1",
-        "ch": "64",
+        "ch": 64,
         "horario": [],
         "anual": 0,
         "requisito": ["10"],
@@ -327,7 +327,7 @@ cco = {
     "25": {
         "codigo": "XMCO01",
         "nome": "Inteligência Artificial",
-        "ch": "64",
+        "ch": 64,
         "horario": [],
         "anual": 0,
         "requisito": ["15"],
@@ -340,7 +340,7 @@ cco = {
     "26": {
         "codigo": "CMCO05",
         "nome": "Introdução a Computação Visual",
-        "ch": "64",
+        "ch": 64,
         "horario": [],
         "anual": 1,
         "requisito": ["11", "15"],
@@ -353,7 +353,7 @@ cco = {
     "27": {
         "codigo": "CTCO06",
         "nome": "Compiladores",
-        "ch": "64",
+        "ch": 64,
         "horario": [],
         "anual": 1,
         "requisito": ["23"],
@@ -366,7 +366,7 @@ cco = {
     "28": {
         "codigo": "XAHC02",
         "nome": "Interação Humano-Computador",
-        "ch": "64",
+        "ch": 64,
         "horario": [],
         "anual": 0,
         "requisito": ["17"],
@@ -379,7 +379,7 @@ cco = {
     "29": {
         "codigo": "XAHC01",
         "nome": "Computação e Sociedade",
-        "ch": "64",
+        "ch": 64,
         "horario": [],
         "anual": 0,
         "requisito": ["12", "19"],
@@ -392,7 +392,7 @@ cco = {
     "30": {
         "codigo": "XAHC03",
         "nome": "Metodologia Científica",
-        "ch": "64",
+        "ch": 64,
         "horario": [],
         "anual": 0,
         "requisito": ["16", "19"],
@@ -405,7 +405,7 @@ cco = {
     "31": {
         "codigo": "TCC1",
         "nome": "TCC1",
-        "ch": "64",
+        "ch": 64,
         "horario": [],
         "anual": 0,
         "requisito": ["30"],
@@ -415,10 +415,10 @@ cco = {
         "periodo": 7,
         "obrigatoria": 1
     },
-    "32": {
+    32: {
         "codigo": "TCC2",
         "nome": "TCC2",
-        "ch": "64",
+        "ch": 64,
         "horario": [],
         "anual": 0,
         "requisito": ["30", "31"],
@@ -435,7 +435,7 @@ sin = {
     "1": {
         "codigo": "XDES01",
         "nome": "Fundamentos de Programação",
-        "ch": "64",
+        "ch": 64,
         "horario": [],
         "anual": 0,
         "requisito": 0,
@@ -448,7 +448,7 @@ sin = {
     "2": {
         "codigo": "MAT00A",
         "nome": "Cálculo A",
-        "ch": "64",
+        "ch": 64,
         "horario": [],
         "anual": 0,
         "requisito": 0,
@@ -461,7 +461,7 @@ sin = {
     "3": {
         "codigo": "CAHC04",
         "nome": "Projeto Integrado",
-        "ch": "32",
+        "ch": 32,
         "horario": [],
         "anual": 1,
         "requisito": 0,
@@ -474,7 +474,7 @@ sin = {
     "4": {
         "codigo": "SAHC05",
         "nome": "Fundamentos de Sistemas de Informação",
-        "ch": "32",
+        "ch": 32,
         "horario": [],
         "anual": 1,
         "requisito": 0,
@@ -733,12 +733,12 @@ sin = {
     },
     "24": {
         "codigo": "ADM51E",
-            "nome": "Gestão de Conhecimento",
-            "ch": 48,
-            "horario": [],
-            "anual": 0,
-            "requisito": [],
-            "equivalentes": [],
+        "nome": "Gestão de Conhecimento",
+        "ch": 48,
+        "horario": [],
+        "anual": 0,
+        "requisito": [],
+        "equivalentes": [],
             "situacao": 0,
             "parametro": 0,
             "periodo": 5,
@@ -835,7 +835,7 @@ sin = {
         "periodo": 8,
         "obrigatoria": 1
     },
-    "32": {
+    32: {
         "codigo": "XAHC01",
         "nome": "Computação e Sociedade",
         "ch": 64,
