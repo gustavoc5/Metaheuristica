@@ -7,26 +7,29 @@ from collections import defaultdict
 from data import cco as cco_padrao, sin as sin_padrao  # estado inicial dos dicionários
 
 
-def disciplinas_viaveis(dicionario):
+def disciplinas_viaveis(dicionario_principal, dicionario_equivalente):
     viaveis = []
 
-    for id_disc, dados in dicionario.items():
+    for id_disc, dados in dicionario_principal.items():
         if dados["situacao"] == 1:
-            continue  # já aprovada, não deve ser sugerida
-
-        requisitos = dados["requisito"]
-        if requisitos == 0 or requisitos == []:
-            viaveis.append(f'{dados["codigo"]} - {dados["nome"]}')
             continue
 
-        # Verifica se todos os pré-requisitos estão aprovados
-        todos_aprovados = all(
-            isinstance(req_id, str) and dicionario.get(req_id, {}).get("situacao") == 1
+        requisitos = dados["requisito"]
+        if requisitos == 0 or requisitos == [] or all(
+            isinstance(req_id, str) and dicionario_principal.get(req_id, {}).get("situacao") == 1
             for req_id in requisitos
-        )
-
-        if todos_aprovados:
-            viaveis.append(f'{dados["codigo"]} - {dados["nome"]}')
+        ):
+            if dados.get("horario"):
+                viaveis.append(f'{dados["codigo"]} - {dados["nome"]}')
+            else:
+                # procura equivalente no outro dicionário (ex: SIN)
+                for cod_equiv in dados.get("equivalentes", []):
+                    for eq in dicionario_equivalente.values():
+                        if eq["codigo"] == cod_equiv and eq.get("horario") and eq.get("situacao") != 1:
+                            # atribui o horário temporariamente
+                            dados["horario"] = eq["horario"]
+                            viaveis.append(f'{dados["codigo"]} - {dados["nome"]} (ofertada como {cod_equiv})')
+                            break
 
     return viaveis
 
@@ -170,32 +173,54 @@ def pontuar_disciplinas_viaveis(dicionario, disciplinas_viaveis, periodo_entrada
     return resultados
 
 
+def horarios_conflitantes(horarios1, horarios2):
+    # Verifica se há interseção entre dois conjuntos de horários
+    return any(h1 == h2 for h1 in horarios1 for h2 in horarios2)
+
 def funcao_objetivo(dicionario, candidatas, limite_ch):
-    # Estratégia gulosa
     disciplinas_info = []
     for id_disc, dados in dicionario.items():
-        if dados["codigo"] in candidatas:
+        if (
+            dados["codigo"] in candidatas and
+            dados.get("horario")  # só considera disciplinas com horário
+        ):
             disciplinas_info.append({
                 "id": id_disc,
                 "codigo": dados["codigo"],
+                "nome": dados["nome"],
                 "ch": int(dados["ch"]),
-                "parametro": dados["parametro"]
+                "parametro": dados["parametro"],
+                "horario": dados["horario"]
             })
 
-    # Ordena pela maior razão benefício/custo (parametro)
+    # Ordena pela maior pontuação
     disciplinas_info.sort(key=lambda d: d["parametro"], reverse=True)
 
     ch_total = 0
     pontuacao_total = 0
     selecionadas = []
+    horarios_ocupados = []
+    conflitos = []
 
     for disc in disciplinas_info:
-        if ch_total + disc["ch"] <= limite_ch:
-            ch_total += disc["ch"]
-            pontuacao_total += disc["parametro"]
+        conflito_com = None
+        for h_disc in horarios_ocupados:
+            if horarios_conflitantes(disc["horario"], h_disc["horario"]):
+                conflito_com = h_disc
+                break
+
+        if not conflito_com and ch_total + disc["ch"] <= limite_ch:
             selecionadas.append(disc["codigo"])
+            pontuacao_total += disc["parametro"]
+            ch_total += disc["ch"]
+            horarios_ocupados.append(disc)
+        else:
+            if conflito_com:
+                print(f"[⚠️] Conflito detectado: {disc['codigo']} ({disc['nome']}) conflita com {conflito_com['codigo']} ({conflito_com['nome']})")
 
     return selecionadas, pontuacao_total
+
+
 
 
 if __name__ == "__main__":
@@ -222,7 +247,8 @@ if __name__ == "__main__":
             else:
                 dicionario = atualizar_situacoes(str(saida), sin)
 
-            viaveis = disciplinas_viaveis(dicionario)
+            viaveis = disciplinas_viaveis(dicionario, sin if "CCO" in nomeBase.upper() else cco)
+
             pontuadas = pontuar_disciplinas_viaveis(dicionario, viaveis)
 
             print("\n🎯 Pontuação das Disciplinas Viáveis:")
