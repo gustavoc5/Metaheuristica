@@ -280,6 +280,87 @@ def simulated_annealing(dicionario, candidatas, limite_ch, max_iter=1000, temp_i
 
     return melhor_solucao, melhor_pontuacao
 
+def heuristica_abc(dicionario, candidatas, limite_ch, num_abelhas=20, num_iter=50, limite_tentativas=5):
+    def avaliar(solucao):
+        ch_total = sum(d["ch"] for d in solucao)
+        if ch_total > limite_ch:
+            return 0
+        if conflitos_horarios(solucao):
+            return 0
+        return sum(d["parametro"] for d in solucao)
+
+    def conflitos_horarios(solucao):
+        for i in range(len(solucao)):
+            for j in range(i + 1, len(solucao)):
+                if horarios_conflitantes(solucao[i]["horario"], solucao[j]["horario"]):
+                    return True
+        return False
+
+    disciplinas_info = [dados for dados in dicionario.values() if dados["codigo"] in candidatas and dados.get("horario")]
+    melhores_solucoes = []
+    tentativas = [0] * num_abelhas
+
+    # Fase de abelhas empregadas: gera soluções iniciais aleatórias
+    populacao = []
+    for _ in range(num_abelhas):
+        random.shuffle(disciplinas_info)
+        solucao = []
+        ch_total = 0
+        for d in disciplinas_info:
+            if ch_total + d["ch"] <= limite_ch and not conflitos_horarios(solucao + [d]):
+                solucao.append(d)
+                ch_total += d["ch"]
+        populacao.append(solucao)
+        melhores_solucoes.append((solucao, avaliar(solucao)))
+
+    for _ in range(num_iter):
+        # Fase das abelhas empregadas: Explora vizinhança
+        for i in range(num_abelhas):
+            vizinho = populacao[i][:]
+            if vizinho:
+                idx = random.randint(0, len(vizinho) - 1)
+                nova_disc = random.choice(disciplinas_info)
+                if nova_disc not in vizinho:
+                    vizinho[idx] = nova_disc
+            if avaliar(vizinho) > melhores_solucoes[i][1]:
+                populacao[i] = vizinho
+                melhores_solucoes[i] = (vizinho, avaliar(vizinho))
+                tentativas[i] = 0
+            else:
+                tentativas[i] += 1
+
+        # Fase das abelhas observadoras: Explora melhores soluções
+        total_avaliacao = sum(s[1] for s in melhores_solucoes)
+        probabilidades = [s[1] / total_avaliacao if total_avaliacao > 0 else 0 for s in melhores_solucoes]
+        for _ in range(num_abelhas):
+            i = random.choices(range(num_abelhas), weights=probabilidades)[0]
+            vizinho = melhores_solucoes[i][0][:]
+            if vizinho:
+                idx = random.randint(0, len(vizinho) - 1)
+                nova_disc = random.choice(disciplinas_info)
+                if nova_disc not in vizinho:
+                    vizinho[idx] = nova_disc
+            if avaliar(vizinho) > melhores_solucoes[i][1]:
+                melhores_solucoes[i] = (vizinho, avaliar(vizinho))
+                tentativas[i] = 0
+
+        # Fase das abelhas escoteiras: substitui soluções estagnadas
+        for i in range(num_abelhas):
+            if tentativas[i] >= limite_tentativas:
+                random.shuffle(disciplinas_info)
+                nova_solucao = []
+                ch_total = 0
+                for d in disciplinas_info:
+                    if ch_total + d["ch"] <= limite_ch and not conflitos_horarios(nova_solucao + [d]):
+                        nova_solucao.append(d)
+                        ch_total += d["ch"]
+                populacao[i] = nova_solucao
+                melhores_solucoes[i] = (nova_solucao, avaliar(nova_solucao))
+                tentativas[i] = 0
+
+    melhor_solucao = max(melhores_solucoes, key=lambda s: s[1])[0]
+    return [d["codigo"] for d in melhor_solucao]
+
 if __name__ == "__main__":
     for dataset in historicos:
         caminho = Path(f'../Datasets/{dataset}')
@@ -348,6 +429,17 @@ if __name__ == "__main__":
             for d in solucao_refinada:
                 print(f"- {d['codigo']} - {d['nome']} (CH: {d['ch']} | Pontuação: {d['parametro']})")
             print("Pontuação total:", pontuacao_refinada, "| Tempo:", round(fim - inicio, 4), "s")
+            
+            # Refinamento Populacional (ABC)
+            print("\n✅ Heurística ABC (Refinamento Populacional):")
+            inicio = time.time()
+            selecionadas_abc = heuristica_abc(dicionario, candidatas, resultado["limite_final"])
+            fim = time.time()
+            for codigo in selecionadas_abc:
+                dados = next(v for v in dicionario.values() if v["codigo"] == codigo)
+                print(f"- {codigo} - {dados['nome']} (CH: {dados['ch']} | Pontuação: {dados.get('parametro', 0)})")
+            pont_abc = sum(dados.get("parametro", 0) for dados in dicionario.values() if dados["codigo"] in selecionadas_abc)
+            print("Pontuação total:", pont_abc, "| Tempo:", round(fim - inicio, 4), "s")
 
         except Exception as e:
             print(f"[ERRO] Falha ao processar {caminho.name}: {e}")
