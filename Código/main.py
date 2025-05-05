@@ -17,7 +17,7 @@ def disciplinas_viaveis(dicionario_principal, dicionario_equivalente):
             continue
         requisitos = dados["requisito"]
         if requisitos == 0 or requisitos == [] or all(
-            isinstance(req_id, str) and dicionario_principal.get(req_id, {}).get("situacao") == 1
+            all(isinstance(req_id, str) for req_id in requisitos) and dicionario_principal.get(req_id, {}).get("situacao") == 1
             for req_id in requisitos
         ):
             if dados.get("horario"):
@@ -64,7 +64,11 @@ def calcular_limite_ch_aprovada(caminho_txt):
             ch_str = partes[3].replace("CH:", "").strip()
             situacao = partes[-1].replace("Situação:", "").strip().upper()
             try:
-                ch = int(ch_str)
+                try:
+                    ch = int(ch_str)
+                except ValueError:
+                    print(f"[WARNING] Invalid CH value encountered: '{ch_str}'")
+                    continue
             except ValueError:
                 continue
             periodos[ano].append({"ch": ch, "situacao": situacao})

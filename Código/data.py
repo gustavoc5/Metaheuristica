@@ -3,7 +3,12 @@ historicos = [
     "historico_CCO-2.pdf",
     "historico_CCO-3.pdf",
     "historico_CCO-4.pdf",
-    "historico_CCO-5.pdf"
+    "historico_CCO-5.pdf",
+    "historico_SIN-1.pdf",
+    "historico_SIN-2.pdf",
+    "historico_SIN-3.pdf",
+    "historico_SIN-4.pdf",
+    "historico_SIN-5.pdf"
 ]
 
 semana = {
@@ -14,16 +19,17 @@ semana = {
     "6": "Sexta"
 }
 
-horarios = [
-    [
-        5,
-        6
-    ],
-    [
-        5,
-        7
-    ]
-]
+horarios = {
+    0: "7h00 - 7h55",
+    1: "7h55 - 9h45",
+    2: "10h10 - 12h00",
+    3: "13h30 - 15h20",
+    4: "15h45 - 17h35",
+    5: "17h35 - 18h30", 
+    6: "19h00 - 20h40",
+    7: "21h00 - 22h40",
+    8: "22h40 - 23h30" 
+}
 
 cco = {
     "1": {
