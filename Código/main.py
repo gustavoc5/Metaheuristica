@@ -5,6 +5,7 @@ from copy import deepcopy
 import fitz
 import time
 import random
+import math
 from collections import defaultdict
 from data import cco as cco_padrao, sin as sin_padrao
 
@@ -199,6 +200,85 @@ def pontuar_disciplinas_viaveis(dicionario, disciplinas_viaveis, periodo_entrada
         resultados.append({"codigo": dados["codigo"], "nome": dados["nome"], "pontuacao": nota})
     return resultados
 
+def simulated_annealing(dicionario, candidatas, limite_ch, max_iter=1000, temp_inicial=100.0, temp_final=1.0, alpha=0.95):
+    def gerar_vizinho(solucao):
+        vizinho = solucao.copy()
+        tentativas = 0
+        while True:
+            tentativas += 1
+            if tentativas > 100:
+                return vizinho  # evita loop infinito
+
+            remover = random.choice(vizinho)
+            codigo_remover = remover["codigo"]
+            candidatos_restantes = [d for d in disciplinas_info if d["codigo"] not in [s["codigo"] for s in vizinho]]
+
+            if not candidatos_restantes:
+                continue
+
+            adicionar = random.choice(candidatos_restantes)
+            nova_solucao = [s for s in vizinho if s["codigo"] != codigo_remover]
+            nova_solucao.append(adicionar)
+
+            if not tem_conflito(nova_solucao) and soma_ch(nova_solucao) <= limite_ch:
+                return nova_solucao
+
+    def soma_ch(solucao):
+        return sum(int(d["ch"]) for d in solucao)
+
+    def tem_conflito(solucao):
+        for i in range(len(solucao)):
+            for j in range(i + 1, len(solucao)):
+                if horarios_conflitantes(solucao[i]["horario"], solucao[j]["horario"]):
+                    return True
+        return False
+
+    def pontuacao_total(solucao):
+        return sum(d["parametro"] for d in solucao)
+
+    # Cria lista de disciplinas candidatas com horários
+    disciplinas_info = []
+    for id_disc, dados in dicionario.items():
+        if dados["codigo"] in candidatas and dados.get("horario"):
+            disciplinas_info.append({
+                "id": id_disc,
+                "codigo": dados["codigo"],
+                "nome": dados["nome"],
+                "ch": int(dados["ch"]),
+                "parametro": dados["parametro"],
+                "horario": dados["horario"]
+            })
+
+    disciplinas_info.sort(key=lambda d: d["parametro"], reverse=True)
+
+    # Solução inicial gulosa (a mesma da função_objetivo)
+    solucao_atual = []
+    ch_total = 0
+    for disc in disciplinas_info:
+        if not any(horarios_conflitantes(disc["horario"], s["horario"]) for s in solucao_atual) and ch_total + disc["ch"] <= limite_ch:
+            solucao_atual.append(disc)
+            ch_total += disc["ch"]
+
+    melhor_solucao = solucao_atual.copy()
+    melhor_pontuacao = pontuacao_total(melhor_solucao)
+
+    temperatura = temp_inicial
+    iteracao = 0
+
+    while temperatura > temp_final and iteracao < max_iter:
+        vizinho = gerar_vizinho(solucao_atual)
+        delta = pontuacao_total(vizinho) - pontuacao_total(solucao_atual)
+
+        if delta > 0 or random.random() < math.exp(delta / temperatura):
+            solucao_atual = vizinho
+            if pontuacao_total(solucao_atual) > melhor_pontuacao:
+                melhor_solucao = solucao_atual.copy()
+                melhor_pontuacao = pontuacao_total(solucao_atual)
+
+        temperatura *= alpha
+        iteracao += 1
+
+    return melhor_solucao, melhor_pontuacao
 
 if __name__ == "__main__":
     for dataset in historicos:
@@ -206,47 +286,70 @@ if __name__ == "__main__":
         nomeBase = caminho.stem
         saida = Path(f"../Datasets/{nomeBase}_disciplinas.txt")
         print(f"\n[INFO] Processando: {caminho.name}")
+
         cco = deepcopy(cco_padrao)
         sin = deepcopy(sin_padrao)
+
         try:
             with fitz.open(caminho) as doc:
                 texto = "\n".join([page.get_text() for page in doc])
+
             disciplinas = parserDisciplina(texto)
             salvaResultado(disciplinas, saida)
+
             if "CCO" in nomeBase.upper():
                 dicionario = atualizar_situacoes(str(saida), cco)
             else:
                 dicionario = atualizar_situacoes(str(saida), sin)
+
             d_eq = sin if "CCO" in nomeBase.upper() else cco
+
             viaveis = disciplinas_viaveis(dicionario, d_eq)
-            pontuadas = pontuar_disciplinas_viaveis(dicionario, viaveis)
-            print("\n🎯 Pontuação das Disciplinas Viáveis:")
-            for d in sorted(pontuadas, key=lambda x: -x["pontuacao"]):
-                print(f'{d["codigo"]} - {d["nome"]} | Pontuação: {d["pontuacao"]}')
+            pontuar_disciplinas_viaveis(dicionario, viaveis)
+
             resultado = calcular_limite_ch_aprovada(str(saida))
+            limite = resultado["limite_final"]
+
             print("\n📊 Limite recomendado de CH para matrícula:")
-            print("• Limite total:", resultado["limite_final"], "horas")
+            print("• Limite total:", limite, "horas")
             print("• Aproveitamento:", resultado["percentual_aproveitamento"], "%")
             print("• CH total cursada nos últimos 2 períodos:", resultado["ch_total"])
             print("• CH aprovada:", resultado["ch_aprovada"])
             print("• Períodos analisados:", ", ".join(resultado["periodos_analisados"]))
+
             candidatas = [dados["codigo"] for dados in dicionario.values() if dados["situacao"] != 1 and dados.get("parametro", 0) > 0]
+
+            # GULOSA
             print("\n✅ Heurística Gulosa:")
             inicio = time.time()
-            selecionadas_gulosa, pontuacao_gulosa = funcao_objetivo(dicionario, candidatas, resultado["limite_final"])
+            selecionadas_gulosa, pontuacao_gulosa = funcao_objetivo(dicionario, candidatas, limite)
             fim = time.time()
             for codigo in selecionadas_gulosa:
                 dados = next(v for v in dicionario.values() if v["codigo"] == codigo)
                 print(f"- {codigo} - {dados['nome']} (CH: {dados['ch']} | Pontuação: {dados['parametro']})")
             print("Pontuação total:", pontuacao_gulosa, "| Tempo:", round(fim - inicio, 4), "s")
+
+            # ALEATÓRIA
             print("\n✅ Heurística Aleatória:")
             inicio = time.time()
-            selecionadas_aleatoria = heuristica_aleatoria(dicionario, candidatas, resultado["limite_final"])
+            selecionadas_aleatoria = heuristica_aleatoria(dicionario, candidatas, limite)
             fim = time.time()
             for codigo in selecionadas_aleatoria:
                 dados = next(v for v in dicionario.values() if v["codigo"] == codigo)
                 print(f"- {codigo} - {dados['nome']} (CH: {dados['ch']} | Pontuação: {dados.get('parametro', 0)})")
             pont_aleatoria = sum(dados.get("parametro", 0) for dados in dicionario.values() if dados["codigo"] in selecionadas_aleatoria)
             print("Pontuação total:", pont_aleatoria, "| Tempo:", round(fim - inicio, 4), "s")
+
+            # HÍBRIDA (Simulated Annealing)
+            print("\n✅ Heurística Híbrida (Simulated Annealing):")
+            inicio = time.time()
+            solucao_refinada, pontuacao_refinada = simulated_annealing(dicionario, candidatas, limite)
+            fim = time.time()
+            for d in solucao_refinada:
+                print(f"- {d['codigo']} - {d['nome']} (CH: {d['ch']} | Pontuação: {d['parametro']})")
+            print("Pontuação total:", pontuacao_refinada, "| Tempo:", round(fim - inicio, 4), "s")
+
         except Exception as e:
             print(f"[ERRO] Falha ao processar {caminho.name}: {e}")
+        finally:
+            print(f"[INFO] Processamento de {caminho.name} concluído.\n")
