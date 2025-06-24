@@ -255,7 +255,8 @@ def simulated_annealing(dicionario, candidatas, limite_ch, max_iter=1000, temp_i
 
     disciplinas_info.sort(key=lambda d: d["parametro"], reverse=True)
 
-    # Solução inicial gulosa (a mesma da função_objetivo)
+    # Solução inicial aleatória
+    random.shuffle(disciplinas_info)
     solucao_atual = []
     ch_total = 0
     for disc in disciplinas_info:
@@ -425,8 +426,8 @@ if __name__ == "__main__":
             pont_aleatoria = sum(dados.get("parametro", 0) for dados in dicionario.values() if dados["codigo"] in selecionadas_aleatoria)
             print("Pontuação total:", pont_aleatoria, "| Tempo:", round(fim - inicio, 4), "s")
 
-            # HÍBRIDA (Simulated Annealing)
-            print("\n✅ Heurística Híbrida (Simulated Annealing):")
+            # Simulated Annealing
+            print("\n✅ Simulated Annealing:")
             inicio = time.time()
             solucao_refinada, pontuacao_refinada = simulated_annealing(dicionario, candidatas, limite)
             fim = time.time()

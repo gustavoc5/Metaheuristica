@@ -1,7 +1,9 @@
 from pathlib import Path
 from parser import parserDisciplina, salvaResultado
 from data import historicos
+import numpy as np
 from copy import deepcopy
+import matplotlib.pyplot as plt
 import statistics
 import fitz
 import time
@@ -206,27 +208,30 @@ def pontuar_disciplinas_viaveis(dicionario, disciplinas_viaveis, periodo_entrada
     return resultados
 
 def simulated_annealing(dicionario, candidatas, limite_ch, max_iter=1000, temp_inicial=100.0, temp_final=1.0, alpha=0.95):
-    def gerar_vizinho(solucao):
-        vizinho = solucao.copy()
-        tentativas = 0
-        while True:
-            tentativas += 1
-            if tentativas > 100:
-                return vizinho  # evita loop infinito
+    def gerar_vizinho(sol):
+        for _ in range(100):
+            novo = sol.copy()
 
-            remover = random.choice(vizinho)
-            codigo_remover = remover["codigo"]
-            candidatos_restantes = [d for d in disciplinas_info if d["codigo"] not in [s["codigo"] for s in vizinho]]
+            if random.random() < 0.5:                 # troca dupla
+                out1, out2 = random.sample(novo, 2)
+                cand = [d for d in disciplinas_info if d["codigo"]
+                        not in {s["codigo"] for s in novo}]
+                if len(cand) < 2: continue
+                in1, in2 = random.sample(cand, 2)
+                novo.remove(out1); novo.remove(out2)
+                novo += [in1, in2]
 
-            if not candidatos_restantes:
-                continue
+            else:                                     # remove-e-adiciona
+                out = random.choice(novo)
+                cand = [d for d in disciplinas_info if d["codigo"]
+                        not in {s["codigo"] for s in novo}]
+                if not cand: continue
+                inp = random.choice(cand)
+                novo.remove(out); novo.append(inp)
 
-            adicionar = random.choice(candidatos_restantes)
-            nova_solucao = [s for s in vizinho if s["codigo"] != codigo_remover]
-            nova_solucao.append(adicionar)
-
-            if not tem_conflito(nova_solucao) and soma_ch(nova_solucao) <= limite_ch:
-                return nova_solucao
+            if not tem_conflito(novo) and soma_ch(novo) <= limite_ch:
+                return novo
+        return sol      # fallback
 
     def soma_ch(solucao):
         return sum(int(d["ch"]) for d in solucao)
@@ -256,7 +261,8 @@ def simulated_annealing(dicionario, candidatas, limite_ch, max_iter=1000, temp_i
 
     disciplinas_info.sort(key=lambda d: d["parametro"], reverse=True)
 
-    # Solução inicial gulosa (a mesma da função_objetivo)
+    # Solução inicial aleatória
+    random.shuffle(disciplinas_info)
     solucao_atual = []
     ch_total = 0
     for disc in disciplinas_info:
@@ -366,90 +372,101 @@ def heuristica_abc(dicionario, candidatas, limite_ch, num_abelhas=20, num_iter=5
     melhor_solucao = max(melhores_solucoes, key=lambda s: s[1])[0]
     return [d["codigo"] for d in melhor_solucao]
 
-def resumo(notas):
-    """Retorna (mín, máx, média) arredondados."""
-    return (min(notas),
-            max(notas),
-            round(statistics.mean(notas), 4))   # usa statistics.mean
+
+def resumo(lst):
+    return (min(lst), max(lst),
+            round(statistics.mean(lst), 4),
+            round(statistics.stdev(lst), 4) if len(lst) > 1 else 0)
 
 def imprime(label, ponts, tempos):
-    pmin, pmax, pmean = resumo(ponts)
-    tmin, tmax, tmean = resumo(tempos)
-    print(f"\n🔸 {label}")
-    print(f"  Pontuação  → min {pmin:6} | máx {pmax:6} | média {pmean:6}")
-    print(f"  Tempo (s)  → min {tmin:.4f} | máx {tmax:.4f} | média {tmean:.4f}")
+    pmin, pmax, pmean, psd = resumo(ponts)
+    tmin, tmax, tmean, tsd = resumo(tempos)
+    print(f"\n🔸 {label:<9}"
+          f"  Pontuação  min={pmin:4} máx={pmax:4} "
+          f"média={pmean:6} σ={psd:6}"
+          f" | Tempo  min={tmin:.4f}s máx={tmax:.4f}s "
+          f"média={tmean:.4f}s σ={tsd:.4f}s")
 
-
+# ------------------------------------------------------------------
 if __name__ == "__main__":
-    N_RODADAS = 30
+    random.seed()            # reprodutibilidade
+    N_RODADAS      = 30
+    N_INSTANCIAS   = 4         # quatro instâncias aleatórias
+    selecionados   = random.sample(historicos, N_INSTANCIAS)
 
-    for dataset in historicos:
-        caminho  = Path(f"../Datasets/{dataset}")
-        nomeBase = caminho.stem
-        saida    = Path(f"../Datasets/{nomeBase}_disciplinas.txt")
-        print(f"\n================  {caminho.name}  ================")
+    dataset_labels, max_gulosa, max_alea, max_sa = [], [], [], []
+    
+    for dataset in selecionados:
+        caminho   = Path(f"../Datasets/{dataset}")
+        nomeBase  = caminho.stem
+        dataset_labels.append(nomeBase)
 
-        # ­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­
-        # pré-processamento único por instância (carrega PDF, cria dicionário, etc.)
         try:
+            # ----------- pré-processamento ----------------------------
             with fitz.open(caminho) as doc:
-                texto = "\n".join(page.get_text() for page in doc)
+                texto = "\n".join(p.get_text() for p in doc)
 
+            saida = Path(f"../Datasets/{nomeBase}_disciplinas.txt")
             salvaResultado(parserDisciplina(texto), saida)
 
-            # Carrega dicionário “virgem”
-            base_principal = deepcopy(cco_padrao if "CCO" in nomeBase.upper() else sin_padrao)
-            base_equival   = deepcopy(sin_padrao if "CCO" in nomeBase.upper() else cco_padrao)
-            dicionario     = atualizar_situacoes(str(saida), base_principal)
+            base_main  = deepcopy(cco_padrao if "CCO" in nomeBase.upper() else sin_padrao)
+            base_equiv = deepcopy(sin_padrao if "CCO" in nomeBase.upper() else cco_padrao)
+            dicionario = atualizar_situacoes(str(saida), base_main)
 
-            # Disciplinas viáveis + pontuação
-            viaveis = disciplinas_viaveis(dicionario, base_equival)
+            viaveis = disciplinas_viaveis(dicionario, base_equiv)
             pontuar_disciplinas_viaveis(dicionario, viaveis)
 
-            limite  = calcular_limite_ch_aprovada(str(saida))["limite_final"]
+            limite = calcular_limite_ch_aprovada(str(saida))["limite_final"]
             candidatas = [d["codigo"] for d in dicionario.values()
                           if d["situacao"] != 1 and d.get("parametro", 0) > 0]
 
-            # vetores para estatísticas
-            stats = {
-                "Gulosa":    {"pont": [], "time": []},
-                "Aleatória": {"pont": [], "time": []},
-                "SA":        {"pont": [], "time": []},
-                "ABC":       {"pont": [], "time": []},
-            }
+            stats = {m: {"pont": [], "time": []} for m in ("Gulosa", "Aleatória", "SA")}
 
-            # ­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­
+            # -------------------- execuções --------------------------
             for _ in range(N_RODADAS):
-                # --- Gulosa ---
                 t0 = time.perf_counter()
                 _, p = funcao_objetivo(dicionario, candidatas, limite)
                 stats["Gulosa"]["pont"].append(p)
                 stats["Gulosa"]["time"].append(time.perf_counter() - t0)
 
-                # --- Aleatória ---
                 t0 = time.perf_counter()
                 sel = heuristica_aleatoria(dicionario, candidatas, limite)
                 p   = sum(d["parametro"] for d in dicionario.values() if d["codigo"] in sel)
                 stats["Aleatória"]["pont"].append(p)
                 stats["Aleatória"]["time"].append(time.perf_counter() - t0)
 
-                # --- Simulated Annealing ---
-                t0 = time.perf_counter()
-                _, p = simulated_annealing(dicionario, candidatas, limite)
-                stats["SA"]["pont"].append(p)
-                stats["SA"]["time"].append(time.perf_counter() - t0)
+                if len(candidatas) >= 2:
+                    t0 = time.perf_counter()
+                    _, p = simulated_annealing(dicionario, candidatas, limite)
+                    stats["SA"]["pont"].append(p)
+                    stats["SA"]["time"].append(time.perf_counter() - t0)
 
-                # --- ABC ---
-                t0 = time.perf_counter()
-                sel = heuristica_abc(dicionario, candidatas, limite)
-                p   = sum(d["parametro"] for d in dicionario.values() if d["codigo"] in sel)
-                stats["ABC"]["pont"].append(p)
-                stats["ABC"]["time"].append(time.perf_counter() - t0)
-
-            # ­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­
-            # Impressão dos resumos
-            for metodo in ["Gulosa", "Aleatória", "SA", "ABC"]:
+            # -------------------- relatório --------------------------
+            print(f"\n===== {nomeBase} =====")
+            for metodo in stats:
                 imprime(metodo, stats[metodo]["pont"], stats[metodo]["time"])
 
+            max_gulosa.append(max(stats["Gulosa"]["pont"]))
+            max_alea  .append(max(stats["Aleatória"]["pont"]))
+            max_sa    .append(max(stats["SA"]["pont"]))
+
         except Exception as e:
-            print(f"[ERRO] {caminho.name}: {e}")
+            print(f"[ERRO] {nomeBase}: {e}")
+            max_gulosa.append(0); max_alea.append(0); max_sa.append(0)
+
+    # ------------------- gráfico -----------------------------------
+    x = np.arange(len(dataset_labels))
+    w = 0.25
+
+    plt.figure(figsize=(10, 5))
+    plt.bar(x - w, max_gulosa, width=w, label="Gulosa")
+    plt.bar(x,      max_alea,  width=w, label="Aleatória")
+    plt.bar(x + w,  max_sa,    width=w, label="SA")
+
+    plt.xlabel("Instância")
+    plt.ylabel("Pontuação máxima (30 exec.)")
+    plt.title("Comparação de Pontuação Máxima — 4 Instâncias Aleatórias")
+    plt.xticks(x, dataset_labels, rotation=20, ha="right")
+    plt.legend(); plt.tight_layout()
+    plt.savefig("grafico_pontuacao_max_4inst.png", dpi=300)
+    plt.show()
